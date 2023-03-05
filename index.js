@@ -415,6 +415,20 @@ commands = {
 			}
 		}
 	},
+	ask: {
+		name: "Ask",
+		desc: "Answers a yes or no question.",
+		syntax: "<question>",
+		func: async function(message, args) {
+			if (!args) {
+				reply(message, "Please provide a question to ask.");
+				return;
+			}
+			let responses = ["yes", "no"];
+			let response = responses[Math.floor(Math.random() * responses.length)];
+			reply(message, response);
+		}
+	},
 	check: {
 		name: "Check",
 		desc: "Checks if a file has already been uploaded to hubchicken.",
